@@ -50,6 +50,19 @@ class mylist:
         
         print(self.A[self.num-1])
         self.num-=1
+
+    def clear(self):
+        self.num=0
+        self.size=1
+
+    def find(self,value):
+        for i in range(self.num):
+            if self.A[i]==value:
+                
+               return i 
+        return "value-error:value is not in list"    
+
+
             
 
 
