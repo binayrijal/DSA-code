@@ -52,10 +52,12 @@ class mylist:
         self.num-=1
 
     def clear(self):
+        #it clear the value of list completely
         self.num=0
         self.size=1
 
     def find(self,value):
+        #if find the value's index
         for i in range(self.num):
             if self.A[i]==value:
                 
