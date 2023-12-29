@@ -57,7 +57,7 @@ class mylist:
         self.size=1
 
     def find(self,value):
-        #if find the value's index
+        #it find the value's index
         for i in range(self.num):
             if self.A[i]==value:
                 
@@ -65,8 +65,37 @@ class mylist:
         return "value-error:value is not in list"    
 
 
+    def insert(self,pos,value):
+        #if there is no vacant space after last index then we increase size 
+        if self.num==self.size:
+            self.__resize(self.size*2)
+        # let start the loop from last to pos+1 here pos is pos+1 in indexing form
+        for i in range(self.num,pos,-1):
+            self.A[i+1] = self.A[i]
+        #put that value in required index and increase self.num by 1
+            
+        self.A[pos]=value
+        self.num+=1
+
+    def __delitem__(self,pos):
+        if 0<=pos<self.num:
+         for i in range(pos,self.num-1):
+            self.A[i]=self.A[i+1]
+         self.num-=1
+        else:
+            print( "index is not available")
+    
+    def remove(self,value):
+        pos=self.find(value)
+
+        if type(pos)== int:
+            #delete
+            self.__delitem__(pos)
+        else:
+            return pos
             
 
+    
 
     #define make array
     def __make__array(self,capacity):
@@ -78,13 +107,13 @@ class mylist:
     
 l=mylist()
 l.append(1)
-l.append('hellow')
+l.append(2)
+l.append('hello')
 l.append(4.5)
-l.append(89)
 print(l)
-print(l[56])
-print(len(l))
-l.pop()
+l.remove(2)
 print(l)
-l.pop()
-print(l)
+
+
+
+
