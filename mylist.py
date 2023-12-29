@@ -93,6 +93,13 @@ class mylist:
             self.__delitem__(pos)
         else:
             return pos
+    def sort(self):
+        for i in range(self.num):
+            if self.A[i]<self.A[i+1]:
+                self.A[i]=self.A[i+1]
+            i+=1
+        
+
             
 
     
